@@ -1,24 +1,37 @@
-pub fn q00() {
+pub fn q00() -> String {
     let x = "stressed";
-    println!("{}", x.chars().rev().collect::<String>());
+    return x.chars().rev().collect::<String>();
 }
 
-pub fn q01() {
+#[test]
+fn q00_test() {
+    assert_eq!("desserts", q00());
+}
+
+pub fn q01() -> String {
     let x = "パタトクカシーー";
-    let result = x.chars()
+    return x.chars()
         .enumerate()
         .filter(|&(idx, _c)| idx % 2 == 0)
         .map(|(_, c)| c )
         .collect::<String>();
-    println!("{}", result);
 }
 
-pub fn q02() {
+#[test]
+fn q01_test() {
+    assert_eq!("パトカー", q01());
+}
+
+pub fn q02() -> String {
     let in1 = "パトカー";
     let in2 = "タクシー";
-    let result = in1.chars()
+    return in1.chars()
         .zip(in2.chars())
         .map(|(x, y)| format!("{}{}", x, y))
         .collect::<String>();
-    println!("{}", result);
+}
+
+#[test]
+fn q02_test() {
+    assert_eq!("パタトクカシーー", q02());
 }

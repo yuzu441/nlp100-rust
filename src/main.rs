@@ -1,5 +1,6 @@
 extern crate nlp;
 
 fn main() {
-    nlp::chapter01::q00();
+    let x = nlp::chapter01::q00();
+    println!("{}", x);
 }
