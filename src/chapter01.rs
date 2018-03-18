@@ -94,24 +94,24 @@ pub fn q05(target: &str, n: u32) -> Vec<String> {
 #[test]
 fn q05_test_bi_gram() {
     let x = "I am an NLPer";
-    let actual = vec![
+    let expected = vec![
         "I-am",
         "am-an",
         "an-NLPer"
     ];
-    assert_eq!(actual, q05(x, 2));
+    assert_eq!(expected, q05(x, 2));
 }
 
 #[test]
 fn q05_test_uni_gram() {
     let x = "I am an NLPer";
-    let actual = vec![
+    let expected = vec![
         "I",
         "am",
         "an",
         "NLPer"
     ];
-    assert_eq!(actual, q05(x, 1));
+    assert_eq!(expected, q05(x, 1));
 }
 
 pub fn q05_char(target: &str, n: u32) -> Vec<String> {
@@ -126,8 +126,8 @@ pub fn q05_char(target: &str, n: u32) -> Vec<String> {
 #[test]
 fn q05_char_bi_gram() {
     let x = "I am an NLPer";
-    let actual = vec![
+    let expected = vec![
         "Ia", "am", "ma", "an", "nN", "NL", "LP", "Pe", "er"
     ];
-    assert_eq!(actual, q05_char(x, 2));
+    assert_eq!(expected, q05_char(x, 2));
 }
