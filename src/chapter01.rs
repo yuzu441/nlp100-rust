@@ -82,3 +82,33 @@ fn q04_test() {
         assert_eq!(idx, result[key]);
     }
 }
+
+pub fn q05(target: &str, n: u32) -> Vec<Vec<&str>> {
+    target.split_whitespace()
+        .collect::<Vec<&str>>()
+        .chunks(n as usize)
+        .map(|chunk| chunk.to_vec())
+        .collect()
+}
+
+#[test]
+fn q05_test_bi_gram() {
+    let x = "I am an NLPer";
+    let actual = vec![
+        vec!["I", "am"],
+        vec!["an", "NLPer"]
+    ];
+    assert_eq!(actual, q05(x, 2));
+}
+
+#[test]
+fn q05_test_uni_gram() {
+    let x = "I am an NLPer";
+    let actual = vec![
+        vec!["I"],
+        vec!["am"],
+        vec!["an"],
+        vec!["NLPer"]
+    ];
+    assert_eq!(actual, q05(x, 1));
+}
