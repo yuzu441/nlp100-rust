@@ -83,11 +83,11 @@ fn q04_test() {
     }
 }
 
-pub fn q05(target: &str, n: u32) -> Vec<Vec<&str>> {
+pub fn q05(target: &str, n: u32) -> Vec<String> {
     target.split_whitespace()
         .collect::<Vec<&str>>()
-        .chunks(n as usize)
-        .map(|chunk| chunk.to_vec())
+        .windows(n as usize)
+        .map(|window| window.join("-"))
         .collect()
 }
 
@@ -95,8 +95,9 @@ pub fn q05(target: &str, n: u32) -> Vec<Vec<&str>> {
 fn q05_test_bi_gram() {
     let x = "I am an NLPer";
     let actual = vec![
-        vec!["I", "am"],
-        vec!["an", "NLPer"]
+        "I-am",
+        "am-an",
+        "an-NLPer"
     ];
     assert_eq!(actual, q05(x, 2));
 }
@@ -105,10 +106,10 @@ fn q05_test_bi_gram() {
 fn q05_test_uni_gram() {
     let x = "I am an NLPer";
     let actual = vec![
-        vec!["I"],
-        vec!["am"],
-        vec!["an"],
-        vec!["NLPer"]
+        "I",
+        "am",
+        "an",
+        "NLPer"
     ];
     assert_eq!(actual, q05(x, 1));
 }
