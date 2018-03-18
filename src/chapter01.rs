@@ -113,3 +113,21 @@ fn q05_test_uni_gram() {
     ];
     assert_eq!(actual, q05(x, 1));
 }
+
+pub fn q05_char(target: &str, n: u32) -> Vec<String> {
+    target.chars()
+        .filter(|c| !c.is_ascii_whitespace())
+        .collect::<Vec<char>>()
+        .windows(n as usize)
+        .map(|win| win.iter().collect::<String>())
+        .collect()
+}
+
+#[test]
+fn q05_char_bi_gram() {
+    let x = "I am an NLPer";
+    let actual = vec![
+        "Ia", "am", "ma", "an", "nN", "NL", "LP", "Pe", "er"
+    ];
+    assert_eq!(actual, q05_char(x, 2));
+}
